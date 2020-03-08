@@ -1,0 +1,15 @@
+{
+  "name": "mini_ramda",
+  "version": "1.0.0",
+  "description": "Contains all necessary functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mini",
+    "ramda"
+  ],
+  "author": "Sushil S <sushil.sree98@gmail.com>",
+  "license": "ISC"
+}
