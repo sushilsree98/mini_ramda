@@ -1,8 +1,9 @@
 {
   "name": "mini_ramda",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Contains all necessary functions",
   "main": "index.js",
+  "repository": "https://github.com/sushilsree98/mini_ramda.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
