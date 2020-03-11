@@ -39,3 +39,83 @@ exports.assocPath =  function(arr,num,obj){
          return sum+val;
        }
      }
+
+//returns true if there is a duplicate in an array
+exports.dupe=function(...ar){
+  let freqCount1={};
+        for(let x of ar){
+            freqCount1[x]= ++freqCount1[x] || 1;
+        }
+        for(let key in freqCount1){
+            if(freqCount1[key]>1){
+                return true;
+            }
+        }
+        return false;
+}
+//returns true if given average is equal to any of the averages of the pair inside the array
+exports.avgPair = function(arr,n){
+  let left = 0;
+        let right = arr.length-1;
+        while (right>left) {
+            avg = (arr[left] + arr[right]) / 2;
+            console.log(arr[left], arr[right]);
+            //console.log(avg);
+            if (avg < n) {
+                left++
+            } else if (avg > n) {
+                right--;
+
+            } else {
+                return true;
+            }
+        }
+        return false;
+}
+
+//returns the max of total within a given window size.
+exports.maxSubArray=function(arr,n){
+        if(arr.length<n){
+            return null
+        }
+        let max=0;
+        let temp=0;
+        for(let i=0;i<n;i++){
+            max+=arr[i]
+        }
+        temp=max;
+        for(let i=n;i<arr.length;i++){
+            temp=temp-arr[i-n]+arr[i];
+            max=Math.max(temp,max);
+        }
+        return max;
+    }
+
+exports.isSubseq=function(str1,str2){
+               if(str1.length===0) return true;
+               if(str2.length===0) return false;
+               if(str1[0]==str2[0]) return(isSubsequence(str1.slice(1),str2.slice(1)));
+               return isSubseq(str1,str2.slice(1));
+             }
+
+//returns the minimum window length required so that the given number is less than or equal to the sum of numbers in a window.
+let win=1;
+exports.minSubArrayLen=function(arr,n){
+        let sum=0;
+       for(let i=0;i<win;i++){
+        sum+=arr[i];
+       }
+       for(let i=win;i<arr.length;i++){
+        sum=sum-arr[i-win]+arr[i];
+        if(sum>=n){
+            console.log(win);
+            return win;
+        }
+       }
+      if(win<arr.length){
+          win++;
+          minSubArrayLen(arr,n);
+      }else{
+      return 0;
+    }
+  }
