@@ -1,6 +1,6 @@
 {
   "name": "mini_ramda",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Contains all necessary functions",
   "main": "index.js",
   "repository": "https://github.com/sushilsree98/mini_ramda.git",
