@@ -90,30 +90,23 @@ exports.maxSubArray=function(arr,n){
     }
 
 exports.isSubseq=function(str1,str2){
-               if(str1.length===0) return true;
-               if(str2.length===0) return false;
-               if(str1[0]==str2[0]) return(isSubsequence(str1.slice(1),str2.slice(1)));
-               return isSubseq(str1,str2.slice(1));
-             }
+          if(str1.length>str2.length){
+              return false;
+          }
+          let left=0;
+          let right=0;
+          while(right<str2.length){
+              if(str1[left]===str2[right]){
+                  left++;
+                  if(left>str1.length){
+                      return false;
+                  }
+              }
+              right++;
+          }
+          if(left<str1.length){
+              return false;
+          }
+          return true;
 
-//returns the minimum window length required so that the given number is less than or equal to the sum of numbers in a window.
-let win=1;
-exports.minSubArrayLen=function(arr,n){
-        let sum=0;
-       for(let i=0;i<win;i++){
-        sum+=arr[i];
-       }
-       for(let i=win;i<arr.length;i++){
-        sum=sum-arr[i-win]+arr[i];
-        if(sum>=n){
-            console.log(win);
-            return win;
-        }
-       }
-      if(win<arr.length){
-          win++;
-          minSubArrayLen(arr,n);
-      }else{
-      return 0;
-    }
-  }
+      }
