@@ -59,8 +59,6 @@ exports.avgPair = function(arr,n){
         let right = arr.length-1;
         while (right>left) {
             avg = (arr[left] + arr[right]) / 2;
-            console.log(arr[left], arr[right]);
-            //console.log(avg);
             if (avg < n) {
                 left++
             } else if (avg > n) {
