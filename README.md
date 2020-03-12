@@ -22,7 +22,7 @@ let miniRamda = require('miniRamda')
 
 ## Functions
 
-**assocPath(array, number, Object)**
+**assocPath(array, number, Object)** 
 Makes a shallow clone of an object, setting or overriding the nodes required to create the given path, and placing the specific value at the tail end of that path. Note that this copies and flattens prototype properties onto the new object as well. All non-primitive properties are copied by reference.
 
 ```sh
@@ -41,7 +41,7 @@ miniRamda.merge({ 'name': 'Rohith', 'age': 20 }, { 'age': 21 });
 >> { 'name': 'Rohith', 'age': 21 }
 ```
 
-**append (value<any>, value<any>)**
+**append (value, value)**
 Returns a new list containing the contents of the given list, followed by the given element.
 
 ```sh
@@ -53,7 +53,7 @@ miniRamda.append(['tests'], ['write', 'more']);
 >> ['write', 'more', ['tests']]
 ```
 
-**applyTo (value<any>)**
+**applyTo (value)**
 Takes a value and applies a function to it.
 This function is also known as the ```thrush``` combinator.
 
@@ -64,7 +64,7 @@ foo(miniRamda.identity);
 foo(miniRamda.add(1));
 >> 43
 ```
-**identity (value<any>)**
+**identity (value)**
 A function that does nothing but return the parameter supplied to it. Good as a default or placeholder function.
 ```sh
 const foo = miniRamda.applyTo("Gayathri");
@@ -72,7 +72,7 @@ foo(miniRamda.identity);
 >> Gayathri
 ```
 
-**add (value<number>)(value<number>)**
+**add (number)(number)**
 Adds two numbers
 
 ```sh
@@ -80,7 +80,7 @@ miniRamda.add(1)(2);
 >> 3
 ```
 
-**dupe (value<Array>)**
+**dupe (value)**
 returns ```true``` if there is a duplicate in an array
 
 ```sh
@@ -90,7 +90,7 @@ miniRamda.dupe([1,2,3])
 >> false
 ```
 
-**avgPair (value<Array>,value<number>)**
+**avgPair (Array,value)**
 returns ```true``` if given average is equal to any of the averages of the pair inside the array
 ```sh
 miniRamda.avgPair([1,2,1],1.5)
@@ -99,7 +99,7 @@ miniRamda.avgPair([1,2,3],3.8)
 >> false
 ```
 
-**maxSubArray (value<Array>,value<number>)**
+**maxSubArray (Array,value)**
 returns a maximum value among all the totals in a given window length 
 ```sh
 miniRamda.maxSubArray([1,4,2,10,23,3,1,0,20],2)
@@ -108,7 +108,7 @@ miniRamda.maxSubArray([1,2,3],2)
 >> 5
 ```
 
-**isSubseq (value 1<string>, value 2<string>)**
+**isSubseq (string, string)**
 returns ```true``` if value 1 is a substring of value 2
 ```sh
 miniRamda.isSubseq("sing","sting")
