@@ -30,7 +30,7 @@ miniRamda.assocPath(['x', 'y', 'z'], 42, {x: {y: {z: 0}}});
 >> {x: {y: {z: 42}}}
 
 // Any missing or non-object keys in path will be overridden
-R.assocPath(['a', 'b', 'c'], 42, {a: 5});
+miniRamda.assocPath(['a', 'b', 'c'], 42, {a: 5});
 >> {a: {b: {c: 42}}}
 ```
 **merge(Object, Object)**
