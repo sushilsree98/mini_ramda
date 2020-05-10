@@ -14,7 +14,7 @@ Install using the command given below:
 $ npm i mini_ramda
 ```
 
-In index.js 
+In index.js
 
 ```sh
 let miniRamda = require('miniRamda')
@@ -30,7 +30,7 @@ miniRamda.assocPath(['x', 'y', 'z'], 42, {x: {y: {z: 0}}});
 >> {x: {y: {z: 42}}}
 
 // Any missing or non-object keys in path will be overridden
-R.assocPath(['a', 'b', 'c'], 42, {a: 5});
+miniRamda.assocPath(['a', 'b', 'c'], 42, {a: 5});
 >> {a: {b: {c: 42}}}
 ```
 **merge(Object, Object)**
@@ -47,9 +47,9 @@ Returns a new list containing the contents of the given list, followed by the gi
 ```sh
 miniRamda.append('tests', ['write', 'more']);
 >> ['write', 'more', 'tests']
-miniRamda.append('tests', []); 
+miniRamda.append('tests', []);
 >> ['tests']
-miniRamda.append(['tests'], ['write', 'more']); 
+miniRamda.append(['tests'], ['write', 'more']);
 >> ['write', 'more', ['tests']]
 ```
 
@@ -64,7 +64,7 @@ foo(miniRamda.identity);
 foo(miniRamda.add(1));
 >> 43
 ```
-**identity (value<any>)**
+**identity (value)**
 A function that does nothing but return the parameter supplied to it. Good as a default or placeholder function.
 ```sh
 const foo = miniRamda.applyTo("Gayathri");
@@ -72,15 +72,15 @@ foo(miniRamda.identity);
 >> Gayathri
 ```
 
-**add (value<number>)(value<number>)**
+**add (number)(number)**
 Adds two numbers
 
 ```sh
-miniRamda.add(1)(2); 
+miniRamda.add(1)(2);
 >> 3
 ```
 
-**dupe (value<Array>)**
+**dupe (Array)**
 returns ```true``` if there is a duplicate in an array
 
 ```sh
@@ -90,7 +90,7 @@ miniRamda.dupe([1,2,3])
 >> false
 ```
 
-**avgPair (value<Array>,value<number>)**
+**avgPair (Array,number)**
 returns ```true``` if given average is equal to any of the averages of the pair inside the array
 ```sh
 miniRamda.avgPair([1,2,1],1.5)
@@ -99,8 +99,8 @@ miniRamda.avgPair([1,2,3],3.8)
 >> false
 ```
 
-**maxSubArray (value<Array>,value<number>)**
-returns a maximum value among all the totals in a given window length 
+**maxSubArray (Array,number)**
+returns a maximum value among all the totals in a given window length
 ```sh
 miniRamda.maxSubArray([1,4,2,10,23,3,1,0,20],2)
 >> 33
@@ -108,10 +108,23 @@ miniRamda.maxSubArray([1,2,3],2)
 >> 5
 ```
 
-**isSubseq (value 1<string>, value 2<string>)**
-returns ```true``` if value 1 is a substring of value 2
+**isSubseq (string 1, string 2)**
+returns ```true``` if string 1 is a substring of string 2
 ```sh
 miniRamda.isSubseq("sing","sting")
 >> true
 ```
+**cond**
+Returns a function, fn, which encapsulates ```if/else, if/else, ...``` logic. It takes a list of [predicate, transformer] pairs. All of the arguments to ```fn``` are applied to each of the predicates in turn until one returns a "truthy" value, at which point ```fn``` returns the result of applying its arguments to the corresponding transformer. If none of the predicates matches,``` fn``` returns undefined.
 
+```sh
+const fn = miniRamda.cond([
+  [(x)=>x===0,()=>'The value 0 is minimum'],
+  [(x)=>x===100,()=>'The value 100 is maximum'],
+  [(x)=>x,temp=>'neither minimum nor maximum']
+]);
+
+fn(0) >> The value 0 is minimum
+fn(100) >> The value 100 is maximum
+fn(50) >> Neither minimum nor maximum
+```

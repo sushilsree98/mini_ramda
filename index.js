@@ -108,5 +108,19 @@ exports.isSubseq=function(str1,str2){
               return false;
           }
           return true;
-
       }
+
+exports.cond =function(arr){
+          return function(val)
+          {
+              for(let i=0;i<arr.length;i++)
+              {
+                const conds=arr[i];
+                const [pre,trans]=conds;
+                if(pre(val))
+                {
+                    return trans(val)
+                }
+             }
+          }
+  }
