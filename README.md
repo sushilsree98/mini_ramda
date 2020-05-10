@@ -22,7 +22,7 @@ let miniRamda = require('miniRamda')
 
 ## Functions
 
-**assocPath(array, number, Object)**
+**assocPath(array, number, Object)** 
 Makes a shallow clone of an object, setting or overriding the nodes required to create the given path, and placing the specific value at the tail end of that path. Note that this copies and flattens prototype properties onto the new object as well. All non-primitive properties are copied by reference.
 
 ```sh
@@ -41,7 +41,7 @@ miniRamda.merge({ 'name': 'Rohith', 'age': 20 }, { 'age': 21 });
 >> { 'name': 'Rohith', 'age': 21 }
 ```
 
-**append (value<any>, value<any>)**
+**append (value, value)**
 Returns a new list containing the contents of the given list, followed by the given element.
 
 ```sh
@@ -53,7 +53,7 @@ miniRamda.append(['tests'], ['write', 'more']);
 >> ['write', 'more', ['tests']]
 ```
 
-**applyTo (value<any>)**
+**applyTo (value)**
 Takes a value and applies a function to it.
 This function is also known as the ```thrush``` combinator.
 
