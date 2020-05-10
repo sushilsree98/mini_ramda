@@ -124,3 +124,15 @@ exports.cond =function(arr){
              }
           }
   }
+
+exports.pipe=function(functions){
+    return function(value){
+      let x=0;
+      for(let i=0;i<functions.length;i++){
+         const fun=functions[i];
+         x=fun(value);
+        value=x;
+      }
+    return x;
+   }
+}

@@ -22,7 +22,7 @@ let miniRamda = require('miniRamda')
 
 ## Functions
 
-**assocPath(array, number, Object)** 
+**assocPath(array, number, Object)**
 Makes a shallow clone of an object, setting or overriding the nodes required to create the given path, and placing the specific value at the tail end of that path. Note that this copies and flattens prototype properties onto the new object as well. All non-primitive properties are copied by reference.
 
 ```sh
@@ -127,4 +127,19 @@ const fn = miniRamda.cond([
 fn(0) >> The value 0 is minimum
 fn(100) >> The value 100 is maximum
 fn(50) >> Neither minimum nor maximum
+```
+
+**pipe**
+Takes in an array of functions and values to be applied to the functions and returns the result of all the computations
+
+```sh
+let fn = miniRamda.pipe([(value)=>{
+  let sum=0;
+    for(let i=0;i<value.length;i++){
+      sum=sum+value[i];
+    }
+    return sum;
+},(value)=>10*value])([3,4])
+
+>> 70
 ```
